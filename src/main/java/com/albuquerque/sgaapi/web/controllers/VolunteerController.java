@@ -1,15 +1,14 @@
 package com.albuquerque.sgaapi.web.controllers;
 
 import com.albuquerque.sgaapi.entities.Volunteer;
-import com.albuquerque.sgaapi.repositories.VolunteerRepository;
 import com.albuquerque.sgaapi.services.VolunteerService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/volunteer/")
@@ -40,7 +39,12 @@ public class VolunteerController {
     }
 
     @GetMapping
-    public Page<Volunteer> allVolunteers(Pageable pageable) {
-        return service.findAll(pageable);
+    public List<Volunteer> allVolunteers(){
+        return service.findAll();
     }
+
+//    @GetMapping
+//    public Page<Volunteer> allVolunteers(Pageable pageable) {
+//        return service.findAll(pageable);
+//    }
 }

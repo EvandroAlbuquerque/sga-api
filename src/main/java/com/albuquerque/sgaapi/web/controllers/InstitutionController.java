@@ -36,6 +36,9 @@ public class InstitutionController {
     }
 
     @DeleteMapping("/delete/{id}")
+    public void deleteInstitution(@PathVariable Long id) {
+        service.delete(id);
+    }
 
     @GetMapping
     public List<Institution> allInstitutions() {

@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -22,26 +23,44 @@ public class VolunteerService {
         return repository.save(newVolunteer);
     }
 
-    public Volunteer editName(Long id, String nameVolunteer) {
-        Volunteer volunteer = repository.findById(id).get();
+    public Volunteer edit(Long id, Volunteer editedVolunteer) {
+        Volunteer oldVolunteer = repository.findById(id).get();
 
-        volunteer.setName(nameVolunteer);
-        return repository.save(volunteer);
+        editedVolunteer.setId(oldVolunteer.getId());
+
+        if (editedVolunteer.getName() == null) {
+            editedVolunteer.setName(oldVolunteer.getName());
+        }
+        if (editedVolunteer.getAddress() == null) {
+            editedVolunteer.setAddress(oldVolunteer.getAddress());
+        }
+        if (editedVolunteer.getContacts() == null) {
+            editedVolunteer.setContacts(oldVolunteer.getContacts());
+        }
+
+        return repository.save(editedVolunteer);
     }
 
-    public Volunteer editAdress(Long id, Address newAddress) {
-        Volunteer volunteer = repository.findById(id).get();
+//    public Volunteer editName(Long id, String nameVolunteer) {
+//        Volunteer volunteer = repository.findById(id).get();
+//
+//        volunteer.setName(nameVolunteer);
+//        return repository.save(volunteer);
+//    }
 
-        volunteer.setAddress(newAddress);
-        return repository.save(volunteer);
-    }
-
-    public Volunteer editContact(Long id, Contact newContacts) {
-        Volunteer volunteer = repository.findById(id).get();
-
-        volunteer.setContacts(newContacts);
-        return repository.save(volunteer);
-    }
+//    public Volunteer editAdress(Long id, Address newAddress) {
+//        Volunteer volunteer = repository.findById(id).get();
+//
+//        volunteer.setAddress(newAddress);
+//        return repository.save(volunteer);
+//    }
+//
+//    public Volunteer editContact(Long id, Contact newContacts) {
+//        Volunteer volunteer = repository.findById(id).get();
+//
+//        volunteer.setContacts(newContacts);
+//        return repository.save(volunteer);
+//    }
 
     public void delete(Long id) {
         repository.deleteById(id);
@@ -49,6 +68,10 @@ public class VolunteerService {
 
     public Optional<Volunteer> find(Long id) {
         return repository.findById(id);
+    }
+
+    public List<Volunteer> findAll() {
+        return repository.findAll();
     }
 
     public Page<Volunteer> findAll(Pageable pageable) {
