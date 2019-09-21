@@ -1,10 +1,8 @@
 package com.albuquerque.sgaapi.services;
 
-import com.albuquerque.sgaapi.entities.donation.PersonalHygiene;
+import com.albuquerque.sgaapi.entities.donation.HygieneProduct;
 import com.albuquerque.sgaapi.repositories.PersonalHygieneRepository;
-import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
-import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -15,17 +13,17 @@ public class PersonalHygieneService {
 
     private final PersonalHygieneRepository repository;
 
-    public PersonalHygiene save(PersonalHygiene newPersonalHygiene) {
-        return repository.save(newPersonalHygiene);
+    public HygieneProduct save(HygieneProduct newHygieneProduct) {
+        return repository.save(newHygieneProduct);
     }
 
-    public PersonalHygiene edit(Long id, PersonalHygiene editedPersonalHygiene) {
-        Optional<PersonalHygiene> oldPersonalHygiene = repository.findById(id);
-        editedPersonalHygiene.setId(oldPersonalHygiene.getId());
+    public HygieneProduct edit(Long id, HygieneProduct editedHygieneProduct) {
+        Optional<HygieneProduct> oldPersonalHygiene = repository.findById(id);
+        editedHygieneProduct.setId(oldPersonalHygiene.getId());
 
-        if (editedPersonalHygiene.getDescription() = null) {
-            editedPersonalHygiene.setDescription(oldPersonalHygiene.getDescription());
+        if (editedHygieneProduct.getDescription() = null) {
+            editedHygieneProduct.setDescription(oldPersonalHygiene.getDescription());
         }
-        if (editedPersonalHygiene)
+        if (editedHygieneProduct)
     }
 }

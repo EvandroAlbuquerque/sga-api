@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 @Getter
 @Setter
 @Entity
-public class PersonalHygiene extends Donation {
+public class HygieneProduct extends Donation {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
