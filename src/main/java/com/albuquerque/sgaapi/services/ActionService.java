@@ -57,6 +57,10 @@ public class ActionService {
         return repository.findAllByCurrent(true);
     }
 
+    public List<Action> findAll() {
+        return repository.findAll();
+    }
+
     public Page<Action> findAll(Pageable pageable) {
         return repository.findAll(pageable);
     }

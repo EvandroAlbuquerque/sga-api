@@ -7,6 +7,7 @@ import com.albuquerque.sgaapi.services.ActionService;
 import com.albuquerque.sgaapi.services.VolunteerService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -17,7 +18,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/api/action/")
+@RequestMapping("/api/action")
 @RequiredArgsConstructor
 public class ActionController {
 
@@ -33,7 +34,7 @@ public class ActionController {
         String obs;
     }
 
-    @PostMapping("/new/")
+    @PostMapping("/new")
     public Action createAction(@RequestBody ActionDTO newAction) {
         Action action = new Action();
         Volunteer volunteer = volunteerService.find(newAction.getVolunteer()).orElse(null);
@@ -44,22 +45,22 @@ public class ActionController {
         return service.save(action);
     }
 
-    @PutMapping("/{id}/")
+    @PutMapping("/{id}")
     public Action editAction(@PathVariable Long id, @RequestBody Action editedAction) {
         return service.edit(id, editedAction);
     }
 
-    @GetMapping("/{id}/")
-    public Action viewAction(@PathVariable Long id) {
-        return service.find(id).get();
+    @GetMapping("/{id}")
+    public ResponseEntity<Action> viewAction(@PathVariable Long id) {
+        return ResponseEntity.of(service.find(id));
     }
 
-    @PutMapping("/cancel/{id}/")
+    @PutMapping("/cancel/{id}")
     public Action cancelAction(@PathVariable Long id) {
         return service.cancel(id);
     }
 
-    @GetMapping("/historic/")    public Action editAddress(Long id, Address newAdress) {
+    @GetMapping("/historic")    public Action editAddress(Long id, Address newAdress) {
         Action action = service.find(id).orElse(null);
         action.setMeetingPlace(newAdress);
         return service.save(action);
