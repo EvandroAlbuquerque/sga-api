@@ -1,14 +1,13 @@
 package com.albuquerque.sgaapi.services;
 
 import com.albuquerque.sgaapi.entities.Action;
-import com.albuquerque.sgaapi.entities.Address;
 import com.albuquerque.sgaapi.repositories.ActionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -38,16 +37,24 @@ public class ActionService {
         return repository.save(editedAction);
     }
 
-    public Action editAddress(Long id, Address newAdress) {
+//    public Action editAddress(Long id, Address newAdress) {
+//        Action action = repository.findById(id).orElse(null);
+//        action.setMeetingPlace(newAdress);
+//        return repository.save(action);
+//    }
 
-    }
-
-    public void cancel(Long id) {
-        repository.;
+    public Action cancel(Long id) {
+        Action action = repository.findById(id).orElse(null);
+        action.setCurrent(false);
+        return repository.save(action);
     }
 
     public Optional<Action> find(Long id) {
         return repository.findById(id);
+    }
+
+    public List<Action> findAllActive() {
+        return repository.findAllByCurrent(true);
     }
 
     public Page<Action> findAll(Pageable pageable) {

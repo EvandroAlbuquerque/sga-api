@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import java.time.LocalDateTime;
-import java.util.Set;
 
 @Entity
 @Getter
@@ -17,6 +16,7 @@ public class Action {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
 
+    public Volunteer responsible;
     public Address meetingPlace;
     public LocalDateTime hour;
     public String obs;
