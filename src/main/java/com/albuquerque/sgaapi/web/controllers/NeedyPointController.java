@@ -25,23 +25,7 @@ public class NeedyPointController {
 
     @PutMapping("/{id}")
     public NeedyPoint editNeedyPoint(@PathVariable Long id, @RequestBody NeedyPoint editedNeedyPoint) {
-        NeedyPoint oldNeedyPoint = service.find(id).get();
-        editedNeedyPoint.setId(id);
-
-        if (editedNeedyPoint.getDescription() == null) {
-            editedNeedyPoint.setDescription(oldNeedyPoint.getDescription());
-        }
-        if (editedNeedyPoint.getObs() == null) {
-            editedNeedyPoint.setObs(oldNeedyPoint.getObs());
-        }
-        if (editedNeedyPoint.getAddress() == null) {
-            editedNeedyPoint.setAddress(oldNeedyPoint.getAddress());
-        }
-        if (editedNeedyPoint.getMostNeeds() == null) {
-            editedNeedyPoint.setMostNeeds(oldNeedyPoint.getMostNeeds());
-        }
-
-        return service.save(editedNeedyPoint);
+        return service.edit(id, editedNeedyPoint);
     }
 
     @GetMapping("/{id}")
@@ -49,7 +33,7 @@ public class NeedyPointController {
         return ResponseEntity.of(service.find(id));
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public void deleteNeedPoint(@PathVariable Long id) {
         service.delete(id);
     }

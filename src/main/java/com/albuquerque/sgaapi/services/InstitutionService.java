@@ -28,7 +28,7 @@ public class InstitutionService {
             editedInstitution.setName(oldInstitution.getName());
         }
         if (editedInstitution.getAddress() == null) {
-            editedInstitution.setAddress(oldInstitution.);
+            editedInstitution.setAddress(oldInstitution.getAddress());
         }
         if (editedInstitution.getContact() == null) {
             editedInstitution.setContact(oldInstitution.getContact());
@@ -37,19 +37,19 @@ public class InstitutionService {
         return repository.save(editedInstitution);
     }
 
-    public void delete(Long id) {
-        repository.deleteById(id);
-    }
-
     public Optional<Institution> find(Long id) {
         return repository.findById(id);
+    }
+
+    public void delete(Long id) {
+        repository.deleteById(id);
     }
 
     public List<Institution> findAll() {
         return repository.findAll();
     }
 
-    public Page<Institution> findAll(Pageable pageable) {
-        return repository.findAll(pageable);
-    }
+//    public Page<Institution> findAll(Pageable pageable) {
+//        return repository.findAll(pageable);
+//    }
 }

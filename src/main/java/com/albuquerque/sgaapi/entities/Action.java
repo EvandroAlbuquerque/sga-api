@@ -20,5 +20,5 @@ public class Action {
     public Address meetingPlace;
     public LocalDateTime hour;
     public String obs;
-    public boolean current = true;
+    public boolean scheduled = true;
 }

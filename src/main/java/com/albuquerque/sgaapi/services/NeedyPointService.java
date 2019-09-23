@@ -25,8 +25,8 @@ public class NeedyPointService {
         if (editedNeedyPoint.getDescription() == null) {
             editedNeedyPoint.setDescription(oldNeedyPoint.getDescription());
         }
-        if (editedNeedyPoint.getMostNeeds() == null) {
-            editedNeedyPoint.setMostNeeds(oldNeedyPoint.getMostNeeds());
+        if (editedNeedyPoint.getMostNeeds().isEmpty()) {
+            editedNeedyPoint.getMostNeeds().addAll(oldNeedyPoint.getMostNeeds());
         }
         if (editedNeedyPoint.getObs() == null) {
             editedNeedyPoint.setObs(oldNeedyPoint.getObs());

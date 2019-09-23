@@ -60,12 +60,9 @@ public class ActionController {
         return service.cancel(id);
     }
 
-    @GetMapping("/historic")    public Action editAddress(Long id, Address newAdress) {
-        Action action = service.find(id).orElse(null);
-        action.setMeetingPlace(newAdress);
-        return service.save(action);
-    }
-    public List<Action> allActions() {
+    @GetMapping("/historic")
+    public List<Action> historicActions(Long id, Address newAdress) {
         return service.findAll();
     }
+
 }

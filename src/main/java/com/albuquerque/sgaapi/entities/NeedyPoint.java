@@ -6,6 +6,7 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -17,6 +18,6 @@ public class NeedyPoint {
 
     public Address address;
     public String description;
-    public String mostNeeds;
+    public Set<Needs> mostNeeds;
     public String obs;
 }

@@ -17,6 +17,6 @@ public class Volunteer {
 
     public String name;
     public Address address;
-    public Contact contacts;
+    public Contact contact;
 }
 

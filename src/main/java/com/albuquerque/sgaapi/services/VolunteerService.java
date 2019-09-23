@@ -34,48 +34,27 @@ public class VolunteerService {
         if (editedVolunteer.getAddress() == null) {
             editedVolunteer.setAddress(oldVolunteer.getAddress());
         }
-        if (editedVolunteer.getContacts() == null) {
-            editedVolunteer.setContacts(oldVolunteer.getContacts());
+        if (editedVolunteer.getContact() == null) {
+            editedVolunteer.setContact(oldVolunteer.getContact());
         }
 
         return repository.save(editedVolunteer);
-    }
-
-//    public Volunteer editName(Long id, String nameVolunteer) {
-//        Volunteer volunteer = repository.findById(id).get();
-//
-//        volunteer.setName(nameVolunteer);
-//        return repository.save(volunteer);
-//    }
-
-//    public Volunteer editAdress(Long id, Address newAddress) {
-//        Volunteer volunteer = repository.findById(id).get();
-//
-//        volunteer.setAddress(newAddress);
-//        return repository.save(volunteer);
-//    }
-//
-//    public Volunteer editContact(Long id, Contact newContacts) {
-//        Volunteer volunteer = repository.findById(id).get();
-//
-//        volunteer.setContacts(newContacts);
-//        return repository.save(volunteer);
-//    }
-
-    public void delete(Long id) {
-        repository.deleteById(id);
     }
 
     public Optional<Volunteer> find(Long id) {
         return repository.findById(id);
     }
 
+    public void delete(Long id) {
+        repository.deleteById(id);
+    }
+
     public List<Volunteer> findAll() {
         return repository.findAll();
     }
 
-    public Page<Volunteer> findAll(Pageable pageable) {
-        return repository.findAll(pageable);
-    }
+//    public Page<Volunteer> findAll(Pageable pageable) {
+//        return repository.findAll(pageable);
+//    }
 
 }
