@@ -28,7 +28,7 @@ public class InstitutionService {
             editedInstitution.setName(oldInstitution.getName());
         }
         if (editedInstitution.getAddress() == null) {
-            editedInstitution.setAddress(oldInstitution.);
+            editedInstitution.setAddress(oldInstitution.getAddress());
         }
         if (editedInstitution.getContact() == null) {
             editedInstitution.setContact(oldInstitution.getContact());

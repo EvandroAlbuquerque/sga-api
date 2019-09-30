@@ -34,8 +34,8 @@ public class VolunteerService {
         if (editedVolunteer.getAddress() == null) {
             editedVolunteer.setAddress(oldVolunteer.getAddress());
         }
-        if (editedVolunteer.getContacts() == null) {
-            editedVolunteer.setContacts(oldVolunteer.getContacts());
+        if (editedVolunteer.getContact() == null) {
+            editedVolunteer.setContact(oldVolunteer.getContact());
         }
 
         return repository.save(editedVolunteer);

@@ -12,6 +12,7 @@ import java.math.BigDecimal;
 @Entity
 public class Money extends Donation{
 
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
 

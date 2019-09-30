@@ -14,7 +14,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ActionService {
 
-    ActionRepository repository;
+    private final ActionRepository repository;
 
     public Action save(Action newAction) {
         return repository.save(newAction);
@@ -27,8 +27,8 @@ public class ActionService {
         if (editedAction.getHour() == null) {
             editedAction.setHour(oldAction.getHour());
         }
-        if (editedAction.getMeetingPlace() == null) {
-            editedAction.setMeetingPlace(oldAction.getMeetingPlace());
+        if (editedAction.getPlace() == null) {
+            editedAction.setPlace(oldAction.getPlace());
         }
         if (editedAction.getObs() == null) {
             editedAction.setObs(oldAction.getObs());

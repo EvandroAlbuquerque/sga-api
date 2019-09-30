@@ -22,9 +22,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ActionController {
 
-    private ActionService service;
+    private final ActionService service;
 
-    private VolunteerService volunteerService;
+    private final VolunteerService volunteerService;
 
     @Data
     public static class ActionDTO {
@@ -39,7 +39,7 @@ public class ActionController {
         Action action = new Action();
         Volunteer volunteer = volunteerService.find(newAction.getVolunteer()).orElse(null);
         action.setResponsible(volunteer);
-        action.setMeetingPlace(newAction.getMeetingPlace());
+        action.setPlace(newAction.getMeetingPlace());
         action.setHour(newAction.getHour());
         action.setObs(newAction.getObs());
         return service.save(action);
@@ -60,12 +60,15 @@ public class ActionController {
         return service.cancel(id);
     }
 
-    @GetMapping("/historic")    public Action editAddress(Long id, Address newAdress) {
+    @GetMapping("/historic")
+    public Action historicAddress(Long id, Address newAdress) {
         Action action = service.find(id).orElse(null);
-        action.setMeetingPlace(newAdress);
+        action.setPlace(newAdress);
         return service.save(action);
     }
-    public List<Action> allActions() {
-        return service.findAll();
+
+    @GetMapping
+    public List<Action> activeActions() {
+        return service.findAllActive();
     }
 }
