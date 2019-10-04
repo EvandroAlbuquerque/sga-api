@@ -22,7 +22,7 @@ public class DonationController {
     public List<Clothes> allClothes() {
         return service.allClothes();
     }
-    @PutMapping("/remove/clothes/{id}")
+    @DeleteMapping("/remove/clothes/{id}")
     public void removeClothes(@PathVariable Long id) {
         service.removeClothes(id);
     }
@@ -35,7 +35,7 @@ public class DonationController {
     public List<Food> allFood() {
         return service.allFood();
     }
-    @PutMapping("/remove/food/{id}")
+    @DeleteMapping("/remove/food/{id}")
     public void removeFood(@PathVariable Long id) {
         service.removeFood(id);
     }
@@ -48,7 +48,7 @@ public class DonationController {
     public List<HygieneProduct> allHygieneProducts() {
         return service.allHygieneProducts();
     }
-    @PutMapping("/remove/hygieneProduct/{id}")
+    @DeleteMapping("/remove/hygieneProduct/{id}")
     public void removeHygieneProduct(@PathVariable Long id) {
         service.removeHygieneProduct(id);
     }
@@ -61,7 +61,7 @@ public class DonationController {
     public List<Money> allMoneyDonations() {
         return service.allMoneyDonations();
     }
-    @PutMapping("/remove/money/{id}")
+    @DeleteMapping("/remove/money/{id}")
     public void removeMoneyDonation(@PathVariable Long id) {
         service.removeMoneyDonation(id);
     }
@@ -74,7 +74,7 @@ public class DonationController {
     public List<Toy> allToys() {
         return service.allToys();
     }
-    @PutMapping("/remove/toy/{id}")
+    @DeleteMapping("/remove/toy/{id}")
     public void removeToy(@PathVariable Long id) {
         service.removeToy(id);
     }

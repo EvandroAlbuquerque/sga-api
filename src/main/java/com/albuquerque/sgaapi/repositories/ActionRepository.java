@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface ActionRepository extends JpaRepository<Action, Long> {
 
-    List<Action> findAllByCurrent(boolean current);
+    List<Action> findAllByScheduled(boolean scheduled);
 
 }

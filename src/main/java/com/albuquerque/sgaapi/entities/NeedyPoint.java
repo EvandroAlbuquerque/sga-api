@@ -19,7 +19,5 @@ public class NeedyPoint {
 
     public String description;
 
-    public String mostNeeds;
-
     public String obs;
 }

@@ -1,13 +1,8 @@
 package com.albuquerque.sgaapi.services;
 
-import com.albuquerque.sgaapi.entities.Address;
-import com.albuquerque.sgaapi.entities.Contact;
 import com.albuquerque.sgaapi.entities.Volunteer;
 import com.albuquerque.sgaapi.repositories.VolunteerRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -57,26 +52,27 @@ public class VolunteerService {
             }
         }
         else {
-            editedVolunteer.setContact(oldVolunteer.getContact());
+            if (editedVolunteer.getContact() == null) {
+                editedVolunteer.setContact(oldVolunteer.getContact());
+            }
         }
-
-        return repository.save(editedVolunteer);
-    }
-
-    public void delete(Long id) {
-        repository.deleteById(id);
+            return repository.save(editedVolunteer);
     }
 
     public Optional<Volunteer> find(Long id) {
         return repository.findById(id);
     }
 
+    public void delete(Long id) {
+        repository.deleteById(id);
+    }
+
     public List<Volunteer> findAll() {
         return repository.findAll();
     }
 
-    public Page<Volunteer> findAll(Pageable pageable) {
-        return repository.findAll(pageable);
-    }
+//    public Page<Volunteer> findAll(Pageable pageable) {
+//        return repository.findAll(pageable);
+//    }
 
 }

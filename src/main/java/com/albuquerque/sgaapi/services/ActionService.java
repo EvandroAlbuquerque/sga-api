@@ -45,7 +45,7 @@ public class ActionService {
 
     public Action cancel(Long id) {
         Action action = repository.findById(id).orElse(null);
-        action.setCurrent(false);
+        action.setScheduled(false);
         return repository.save(action);
     }
 
@@ -54,7 +54,7 @@ public class ActionService {
     }
 
     public List<Action> findAllActive() {
-        return repository.findAllByCurrent(true);
+        return repository.findAllByScheduled(true);
     }
 
     public List<Action> findAll() {

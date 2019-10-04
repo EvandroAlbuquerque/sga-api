@@ -10,7 +10,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -59,15 +58,14 @@ public class ActionController {
         return service.cancel(id);
     }
 
-    @GetMapping("/historic")
-    public Action historicAddress(Long id, Address newAdress) {
-        Action action = service.find(id).orElse(null);
-        action.setPlace(newAdress);
-        return service.save(action);
-    }
-
     @GetMapping
     public List<Action> activeActions() {
         return service.findAllActive();
     }
+
+    @GetMapping("/historic")
+    public List<Action> historicActions(Long id, Address newAdress) {
+        return service.findAll();
+    }
+
 }

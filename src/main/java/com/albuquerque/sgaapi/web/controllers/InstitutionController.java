@@ -20,6 +20,26 @@ public class InstitutionController {
     private final InstitutionService service;
 
     @PostMapping("/new")
+//    public Volunteer editName(Long id, String nameVolunteer) {
+//        Volunteer volunteer = repository.findById(id).get();
+//
+//        volunteer.setName(nameVolunteer);
+//        return repository.save(volunteer);
+//    }
+
+//    public Volunteer editAdress(Long id, Address newAddress) {
+//        Volunteer volunteer = repository.findById(id).get();
+//
+//        volunteer.setAddress(newAddress);
+//        return repository.save(volunteer);
+//    }
+//
+//    public Volunteer editContact(Long id, Contact newContacts) {
+//        Volunteer volunteer = repository.findById(id).get();
+//
+//        volunteer.setContacts(newContacts);
+//        return repository.save(volunteer);
+//    }
     public Institution createInstitution(@RequestBody Institution newInstitution) {
         return service.save(newInstitution);
     }
@@ -34,7 +54,7 @@ public class InstitutionController {
         return ResponseEntity.of(service.find(id));
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public void deleteInstitution(@PathVariable Long id) {
         service.delete(id);
     }
