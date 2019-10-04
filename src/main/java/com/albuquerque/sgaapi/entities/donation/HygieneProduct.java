@@ -16,5 +16,4 @@ public class HygieneProduct extends Donation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
-
 }

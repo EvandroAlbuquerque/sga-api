@@ -12,7 +12,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class NeedyPointService {
 
-    NeedyPointRepository repository;
+    private final NeedyPointRepository repository;
 
     public NeedyPoint save(NeedyPoint newNeedyPoint) {
         return repository.save(newNeedyPoint);

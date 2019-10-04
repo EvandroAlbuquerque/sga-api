@@ -11,11 +11,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DonationService {
 
-    ClothesRepository        clothesRepository;
-    FoodRepository           foodRepository;
-    HygieneProductRepository hygieneProductRepository;
-    MoneyRepository          moneyRepository;
-    ToyRepository            toyRepository;
+    private final ClothesRepository        clothesRepository;
+    private final FoodRepository           foodRepository;
+    private final HygieneProductRepository hygieneProductRepository;
+    private final MoneyRepository          moneyRepository;
+    private final ToyRepository            toyRepository;
 
     public Clothes addClothes(Clothes clothes) {
         return clothesRepository.save(clothes);

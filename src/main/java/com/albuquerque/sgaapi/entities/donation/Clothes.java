@@ -12,6 +12,10 @@ enum Gender {
     MALE, FEMALE, UNDEFINED
 }
 
+enum Size {
+    XSMALL, SMALL, MEDIUM, LARGE, XLARGE
+}
+
 @Getter
 @Setter
 @Entity
@@ -21,7 +25,7 @@ public class Clothes extends Donation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
 
-    public String size;
+    public Size size;
     public Gender gender;
 
 }

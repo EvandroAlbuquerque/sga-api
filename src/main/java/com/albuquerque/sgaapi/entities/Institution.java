@@ -19,6 +19,6 @@ public class Institution {
     @Embedded
     public Address address;
 
-    @OneToOne
+    @Embedded
     public Contact contact;
 }

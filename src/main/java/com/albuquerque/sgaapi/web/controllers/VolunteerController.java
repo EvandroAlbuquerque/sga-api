@@ -11,29 +11,28 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/volunteer/")
-@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
+@RequestMapping("/api/volunteer")
 @RequiredArgsConstructor
 public class VolunteerController {
 
-    VolunteerService service;
+    private final VolunteerService service;
 
-    @PostMapping("/new/")
+    @PostMapping("/new")
     public Volunteer newVolunteer(@RequestBody Volunteer newVolunteer) {
         return service.save(newVolunteer);
     }
 
-    @PutMapping("/{id}/")
+    @PutMapping("/{id}")
     public Volunteer editVolunteer(@PathVariable Long id, @RequestBody Volunteer editedVolunteer) {
         return service.edit(id, editedVolunteer);
     }
 
-    @GetMapping("/{id}/")
+    @GetMapping("/{id}")
     public ResponseEntity<Volunteer> viewVolunteer(@PathVariable Long id) {
         return ResponseEntity.of(service.find(id));
     }
 
-    @DeleteMapping("/{id}/")
+    @DeleteMapping("/{id}")
     public void deleteVolunteer(@PathVariable Long id) {
         service.delete(id);
     }

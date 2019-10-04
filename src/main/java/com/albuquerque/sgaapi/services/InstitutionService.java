@@ -14,7 +14,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class InstitutionService {
 
-    public InstitutionRepository repository;
+    private final InstitutionRepository repository;
 
     public Institution save(Institution newInstitution) {
         return repository.save(newInstitution);

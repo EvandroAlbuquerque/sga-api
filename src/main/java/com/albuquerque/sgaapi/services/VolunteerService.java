@@ -17,7 +17,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class VolunteerService {
 
-    VolunteerRepository repository;
+    private final VolunteerRepository repository;
 
     public Volunteer save(Volunteer newVolunteer) {
         return repository.save(newVolunteer);
@@ -31,36 +31,37 @@ public class VolunteerService {
         if (editedVolunteer.getName() == null) {
             editedVolunteer.setName(oldVolunteer.getName());
         }
-        if (editedVolunteer.getAddress() == null) {
+        if (editedVolunteer.getAddress() != null) {
+            if (editedVolunteer.getAddress().getPostalCode() == null) {
+                editedVolunteer.getAddress().setPostalCode(oldVolunteer.getAddress().getPostalCode());
+            }
+            if (editedVolunteer.getAddress().getStreet() == null) {
+                editedVolunteer.getAddress().setStreet(oldVolunteer.getAddress().getStreet());
+            }
+            if (editedVolunteer.getAddress().getNumber() == 0) {
+                editedVolunteer.getAddress().setNumber(oldVolunteer.getAddress().getNumber());
+            }
+            if (editedVolunteer.getAddress().getDistrict() == null) {
+                editedVolunteer.getAddress().setDistrict(oldVolunteer.getAddress().getDistrict());
+            }
+        }
+        else {
             editedVolunteer.setAddress(oldVolunteer.getAddress());
         }
-        if (editedVolunteer.getContact() == null) {
+        if (editedVolunteer.getContact() != null) {
+            if (editedVolunteer.getContact().getEmail() == null) {
+                editedVolunteer.getContact().setEmail(oldVolunteer.getContact().getEmail());
+            }
+            if (editedVolunteer.getContact().getPhone() == null) {
+                editedVolunteer.getContact().setPhone(oldVolunteer.getContact().getPhone());
+            }
+        }
+        else {
             editedVolunteer.setContact(oldVolunteer.getContact());
         }
 
         return repository.save(editedVolunteer);
     }
-
-//    public Volunteer editName(Long id, String nameVolunteer) {
-//        Volunteer volunteer = repository.findById(id).get();
-//
-//        volunteer.setName(nameVolunteer);
-//        return repository.save(volunteer);
-//    }
-
-//    public Volunteer editAdress(Long id, Address newAddress) {
-//        Volunteer volunteer = repository.findById(id).get();
-//
-//        volunteer.setAddress(newAddress);
-//        return repository.save(volunteer);
-//    }
-//
-//    public Volunteer editContact(Long id, Contact newContacts) {
-//        Volunteer volunteer = repository.findById(id).get();
-//
-//        volunteer.setContacts(newContacts);
-//        return repository.save(volunteer);
-//    }
 
     public void delete(Long id) {
         repository.deleteById(id);

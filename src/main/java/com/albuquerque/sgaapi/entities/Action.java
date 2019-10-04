@@ -21,7 +21,7 @@ public class Action {
     @Embedded
     public Address place;
 
-    public LocalDateTime hour;
+    public String hour;
 
     public String obs;
 

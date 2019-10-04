@@ -14,11 +14,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/institution")
-@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @RequiredArgsConstructor
 public class InstitutionController {
 
-    InstitutionService service;
+    private final InstitutionService service;
 
     @PostMapping("/new")
     public Institution createInstitution(@RequestBody Institution newInstitution) {

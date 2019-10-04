@@ -12,11 +12,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/needypoint")
-@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @RequiredArgsConstructor
 public class NeedyPointController {
 
-    NeedyPointService service;
+    private final NeedyPointService service;
 
     @PostMapping("/new")
     public NeedyPoint newNeedyPoint(@RequestBody NeedyPoint newNeedyPoint) {

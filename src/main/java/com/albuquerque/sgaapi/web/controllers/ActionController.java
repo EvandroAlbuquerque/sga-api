@@ -28,18 +28,17 @@ public class ActionController {
 
     @Data
     public static class ActionDTO {
-        Long volunteer;
+        Long responsible;
         Address meetingPlace;
-        LocalDateTime hour;
+        String hour;
         String obs;
     }
 
     @PostMapping("/new")
     public Action createAction(@RequestBody ActionDTO newAction) {
         Action action = new Action();
-        Volunteer volunteer = volunteerService.find(newAction.getVolunteer()).orElse(null);
+        Volunteer volunteer = volunteerService.find(newAction.getResponsible()).orElse(null);
         action.setResponsible(volunteer);
-        action.setPlace(newAction.getMeetingPlace());
         action.setHour(newAction.getHour());
         action.setObs(newAction.getObs());
         return service.save(action);

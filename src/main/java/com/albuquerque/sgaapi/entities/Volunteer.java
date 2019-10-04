@@ -19,7 +19,7 @@ public class Volunteer {
     @Embedded
     public Address address;
 
-    @OneToOne
+    @Embedded
     public Contact contact;
 }
 

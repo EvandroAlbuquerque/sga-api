@@ -2,15 +2,17 @@ package com.albuquerque.sgaapi.web.controllers;
 
 import com.albuquerque.sgaapi.entities.donation.*;
 import com.albuquerque.sgaapi.services.DonationService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/donation/")
+@RequiredArgsConstructor
 public class DonationController {
 
-    DonationService service;
+    private final DonationService service;
 
     @PostMapping("/add/clothes")
     public Clothes donateClothes(@RequestBody Clothes clothes) {
