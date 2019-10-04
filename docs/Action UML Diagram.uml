@@ -1,0 +1,14 @@
+@startuml
+
+abstract class Address {
+}
+
+class Action {
+    - hour: LocalDateTime
+    - obs: String
+}
+
+Address - Action
+Action -- Volunteer
+
+@enduml

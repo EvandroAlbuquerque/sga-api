@@ -1,76 +1,15 @@
 @startuml
 
-enum Address {
+abstract class Address {
     - street: String
     - postalCode: String
     - number: int
     - district: String
 }
 
-enum Contact {
+abstract class Contact {
     - phone: String
     - email: String
-    - facebook: String
-    - instagram: String
-    - others: List<String>
-}
-
-enum Gender {
-    MALE,
-    FEMALE,
-    UNDEFINED
-}
-
-enum Needs {
-    CLOTHES,
-    FOOD,
-    PERSONAL_HYGIENE
-}
-
-class Action {
-    - hour: Date
-    - obs: String
-    - participants: Set<Volunteer>
-}
-
-abstract class Donation {
-    - description
-    - donationDate
-    - donatorName
-}
-
-class Clothes {
-    - size: String
-}
-
-class Food {
-    - expiryDate: Date
-}
-
-class Money {
-    - value: BigDecimal
-}
-
-class PersonalHygiene {
-    -
-}
-
-class Toy {
-
-}
-
-class NeedyPoint {
-    - description: String
-    - mostNeeds: Set<Needs>
-    - obs: String
-}
-
-class Institution {
-}
-
-
-class Volunteer {
-    - name
 }
 
 @enduml

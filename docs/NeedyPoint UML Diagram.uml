@@ -1,0 +1,17 @@
+@startuml
+
+enum Needs {
+    CLOTHES,
+    FOOD,
+    PERSONAL_HYGIENE
+}
+
+class NeedyPoint {
+    - description: String
+    - mostNeeds: Set<Needs>
+    - obs: String
+}
+
+NeedyPoint -- Needs
+
+@enduml

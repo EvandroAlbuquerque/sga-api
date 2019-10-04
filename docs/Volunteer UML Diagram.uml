@@ -1,0 +1,11 @@
+@startuml
+
+class Volunteer {
+    - name
+}
+
+Action -- Volunteer
+Volunteer -- Address
+Volunteer -- Contact
+
+@enduml

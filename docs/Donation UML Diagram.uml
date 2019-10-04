@@ -1,0 +1,52 @@
+@startuml
+
+abstract class Donation {
+    - description
+    - donationDate
+    - donatorName
+}
+
+enum Gender {
+    MALE,
+    FEMALE,
+    UNDEFINED
+}
+
+enum Size {
+    X-SMALL,
+    SMALL,
+    MEDIUM,
+    LARGE,
+    X-LARGE
+}
+
+class Clothes {
+    - type: String
+}
+
+class Food {
+    - expiryDate: Date
+}
+
+class Money {
+    - value: BigDecimal
+}
+
+class HygieneProduct {
+    - productName: String
+}
+
+class Toy {
+
+}
+
+Gender -- Clothes
+Size -- Clothes
+Clothes -- Donation
+Food -- Donation
+Money - Donation
+Donation - NeedyPoint
+Donation -- HygieneProduct
+Donation -- Toy
+
+@enduml

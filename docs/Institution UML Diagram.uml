@@ -1,0 +1,9 @@
+@startuml
+
+class Institution {
+}
+
+Institution -- Address
+Institution -- Contact
+
+@enduml
