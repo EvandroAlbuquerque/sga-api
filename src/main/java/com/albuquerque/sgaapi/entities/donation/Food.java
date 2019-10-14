@@ -15,4 +15,5 @@ import java.util.Date;
 public class Food extends Donation {
 
     public Date expiryDate;
+
 }
