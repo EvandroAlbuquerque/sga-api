@@ -14,67 +14,67 @@ public class DonationController {
 
     private final DonationService service;
 
-    @PostMapping("/add/clothes")
+    @PostMapping("/clothes")
     public Clothes donateClothes(@RequestBody Clothes clothes) {
         return service.addClothes(clothes);
     }
-    @GetMapping("/all/clothes")
+    @GetMapping("/clothes")
     public List<Clothes> allClothes() {
         return service.allClothes();
     }
-    @DeleteMapping("/remove/clothes/{id}")
+    @DeleteMapping("/clothes/{id}")
     public void removeClothes(@PathVariable Long id) {
         service.removeClothes(id);
     }
 
-    @PostMapping("/add/food")
+    @PostMapping("/food")
     public Food donateFood(@RequestBody Food food) {
         return service.addFood(food);
     }
-    @GetMapping("/all/food")
+    @GetMapping("/food")
     public List<Food> allFood() {
         return service.allFood();
     }
-    @DeleteMapping("/remove/food/{id}")
+    @DeleteMapping("/food/{id}")
     public void removeFood(@PathVariable Long id) {
         service.removeFood(id);
     }
 
-    @PostMapping("/add/hygieneProduct")
+    @PostMapping("/hygieneProduct")
     public HygieneProduct donateHygieneProduct(@RequestBody HygieneProduct product) {
         return service.addHygieneProduct(product);
     }
-    @GetMapping("/all/hygieneProduct")
+    @GetMapping("/hygieneProduct")
     public List<HygieneProduct> allHygieneProducts() {
         return service.allHygieneProducts();
     }
-    @DeleteMapping("/remove/hygieneProduct/{id}")
+    @DeleteMapping("/hygieneProduct/{id}")
     public void removeHygieneProduct(@PathVariable Long id) {
         service.removeHygieneProduct(id);
     }
 
-    @PostMapping("/add/money")
+    @PostMapping("/money")
     public Money donateMoney(@RequestBody Money money) {
         return service.addMoneyDonation(money);
     }
-    @GetMapping("/all/money")
+    @GetMapping("/money")
     public List<Money> allMoneyDonations() {
         return service.allMoneyDonations();
     }
-    @DeleteMapping("/remove/money/{id}")
+    @DeleteMapping("/money/{id}")
     public void removeMoneyDonation(@PathVariable Long id) {
         service.removeMoneyDonation(id);
     }
 
-    @PostMapping("/add/toy")
+    @PostMapping("/toy")
     public Toy donateToy(@RequestBody Toy toy) {
         return service.addToy(toy);
     }
-    @GetMapping("/all/toy")
+    @GetMapping("/toy")
     public List<Toy> allToys() {
         return service.allToys();
     }
-    @DeleteMapping("/remove/toy/{id}")
+    @DeleteMapping("/toy/{id}")
     public void removeToy(@PathVariable Long id) {
         service.removeToy(id);
     }

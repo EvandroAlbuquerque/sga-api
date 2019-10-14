@@ -21,10 +21,6 @@ enum Size {
 @Entity
 public class Clothes extends Donation {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
-
     public Size size;
     public Gender gender;
 

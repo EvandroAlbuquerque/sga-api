@@ -17,9 +17,5 @@ enum AgeGroup {
 @Entity
 public class Toy extends Donation {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
-
     public AgeGroup age;
 }

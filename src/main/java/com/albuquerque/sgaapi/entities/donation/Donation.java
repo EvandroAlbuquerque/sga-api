@@ -1,13 +1,19 @@
 package com.albuquerque.sgaapi.entities.donation;
 
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
 import java.util.Date;
 
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@MappedSuperclass
 public abstract class Donation {
 
-    public Date donationDate;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Long id;
+
+    public String donationDate;
     public String donatorName;
     public String productName;
     public String description;

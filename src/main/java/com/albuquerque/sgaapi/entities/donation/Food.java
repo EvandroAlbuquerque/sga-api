@@ -14,9 +14,5 @@ import java.util.Date;
 @Entity
 public class Food extends Donation {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
-
     public Date expiryDate;
 }

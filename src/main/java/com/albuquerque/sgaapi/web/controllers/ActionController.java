@@ -28,7 +28,7 @@ public class ActionController {
     @Data
     public static class ActionDTO {
         Long responsible;
-        Address meetingPlace;
+        Address place;
         String hour;
         String obs;
     }
@@ -40,6 +40,7 @@ public class ActionController {
         action.setResponsible(volunteer);
         action.setHour(newAction.getHour());
         action.setObs(newAction.getObs());
+        action.setPlace(newAction.getPlace());
         return service.save(action);
     }
 

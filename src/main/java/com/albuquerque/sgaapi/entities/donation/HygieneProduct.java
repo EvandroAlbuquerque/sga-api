@@ -8,12 +8,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+enum HygieneProductType {
+    PERSONAL, GENERAL
+}
+
 @Getter
 @Setter
 @Entity
 public class HygieneProduct extends Donation {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    public HygieneProductType type;
 }
