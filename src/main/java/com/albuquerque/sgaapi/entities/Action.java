@@ -20,6 +20,8 @@ public class Action {
     @Embedded
     public Address place;
 
+    public String description;
+
     public String hour;
 
     public String obs;

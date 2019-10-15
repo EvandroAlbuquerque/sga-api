@@ -1,12 +1,10 @@
 package com.albuquerque.sgaapi.entities.donation;
 
+import com.albuquerque.sgaapi.entities.Institution;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 
 @Getter
 @Setter
@@ -22,5 +20,7 @@ public abstract class Donation {
     public String productName;
     public String description;
 
+    @ManyToMany
+    public Institution forwardedTo;
 
 }

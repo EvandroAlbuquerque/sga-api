@@ -16,6 +16,8 @@ public class Institution {
 
     public String name;
 
+    public String description;
+
     @Embedded
     public Address address;
 
