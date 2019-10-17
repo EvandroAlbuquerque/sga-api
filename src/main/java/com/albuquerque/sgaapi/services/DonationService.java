@@ -1,6 +1,8 @@
 package com.albuquerque.sgaapi.services;
 
+import com.albuquerque.sgaapi.entities.Institution;
 import com.albuquerque.sgaapi.entities.donation.*;
+import com.albuquerque.sgaapi.repositories.InstitutionRepository;
 import com.albuquerque.sgaapi.repositories.donation.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,54 +19,71 @@ public class DonationService {
     private final MoneyRepository          moneyRepository;
     private final ToyRepository            toyRepository;
 
+    private final InstitutionRepository institutionRepository;
+
     public Clothes addClothes(Clothes clothes) {
         return clothesRepository.save(clothes);
     }
     public List<Clothes> allClothes() {
-        return clothesRepository.findAll();
+        return clothesRepository.findAllByForwardTo(null);
     }
-    public void removeClothes(Long id) {
-        clothesRepository.deleteById(id);
+    public void forwardClothes(Long clothesId, Long institutionId) {
+        Clothes clothes = clothesRepository.findById(clothesId).get();
+        Institution institution = institutionRepository.findById(institutionId).get();
+        clothes.setForwardedTo(institution);
+        clothesRepository.save(clothes);
     }
 
     public Food addFood(Food food) {
         return foodRepository.save(food);
     }
     public List<Food> allFood() {
-        return foodRepository.findAll();
+        return foodRepository.findAllByForwardTo(null);
     }
-    public void removeFood(Long id) {
-        foodRepository.deleteById(id);
+    public void forwardFood(Long foodId, Long institutionId) {
+        Food food = foodRepository.findById(foodId).get();
+        Institution institution = institutionRepository.findById(institutionId).get();
+        food.setForwardedTo(institution);
+        foodRepository.save(food);
     }
 
     public HygieneProduct addHygieneProduct(HygieneProduct product) {
         return hygieneProductRepository.save(product);
     }
     public List<HygieneProduct> allHygieneProducts() {
-        return hygieneProductRepository.findAll();
+        return hygieneProductRepository.findAllByForwardTo(null);
     }
-    public void removeHygieneProduct(Long id) {
-        hygieneProductRepository.deleteById(id);
+    public void forwardHygieneProduct(Long hygieneProductId, Long institutionId) {
+        HygieneProduct product = hygieneProductRepository.findById(hygieneProductId).get();
+        Institution institution = institutionRepository.findById(institutionId).get();
+        product.setForwardedTo(institution);
+        hygieneProductRepository.save(product);
     }
 
-    public Money addMoneyDonation(Money money) {
+    public Money addMoney(Money money) {
         return moneyRepository.save(money);
     }
-    public List<Money> allMoneyDonations() {
-        return moneyRepository.findAll();
+    public List<Money> allMoney() {
+        return moneyRepository.findAllByForwardTo(null);
     }
-    public void removeMoneyDonation(Long id) {
-        moneyRepository.deleteById(id);
+    public void forwardMoney(Long moneyId, Long institutionId) {
+        Money money = moneyRepository.findById(moneyId).get();
+        Institution institution = institutionRepository.findById(institutionId).get();
+        money.setForwardedTo(institution);
+        moneyRepository.save(money);
     }
 
     public Toy addToy(Toy toy) {
         return toyRepository.save(toy);
     }
     public List<Toy> allToys() {
-        return toyRepository.findAll();
+        return toyRepository.findAllByForwardTo(null);
     }
-    public void removeToy(Long id) {
-        toyRepository.deleteById(id);
+    public void forwardToy(Long toyId, Long institutionId) {
+        Toy toy = toyRepository.findById(toyId).get();
+        Institution institution = institutionRepository.findById(institutionId).get();
+        toy.setForwardedTo(institution);
+        toyRepository.save(toy);
     }
 
 }

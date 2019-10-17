@@ -22,9 +22,9 @@ public class DonationController {
     public List<Clothes> allClothes() {
         return service.allClothes();
     }
-    @DeleteMapping("/clothes/{id}")
-    public void removeClothes(@PathVariable Long id) {
-        service.removeClothes(id);
+    @PutMapping("/clothes/{id}")
+    public void forwardClothes(@PathVariable Long id, @RequestBody Long institutionId) {
+        service.forwardClothes(id, institutionId);
     }
 
     @PostMapping("/food")
@@ -35,9 +35,9 @@ public class DonationController {
     public List<Food> allFood() {
         return service.allFood();
     }
-    @DeleteMapping("/food/{id}")
-    public void removeFood(@PathVariable Long id) {
-        service.removeFood(id);
+    @PutMapping("/food/{id}")
+    public void forwardFood(@PathVariable Long id, @RequestBody Long institutionId) {
+        service.forwardFood(id, institutionId);
     }
 
     @PostMapping("/hygieneProduct")
@@ -48,22 +48,22 @@ public class DonationController {
     public List<HygieneProduct> allHygieneProducts() {
         return service.allHygieneProducts();
     }
-    @DeleteMapping("/hygieneProduct/{id}")
-    public void removeHygieneProduct(@PathVariable Long id) {
-        service.removeHygieneProduct(id);
+    @PutMapping("/hygieneProduct/{id}")
+    public void forwardHygieneProduct(@PathVariable Long id, @RequestBody Long institutionId) {
+        service.forwardHygieneProduct(id, institutionId);
     }
 
     @PostMapping("/money")
     public Money donateMoney(@RequestBody Money money) {
-        return service.addMoneyDonation(money);
+        return service.addMoney(money);
     }
     @GetMapping("/money")
-    public List<Money> allMoneyDonations() {
-        return service.allMoneyDonations();
+    public List<Money> allMoney() {
+        return service.allMoney();
     }
-    @DeleteMapping("/money/{id}")
-    public void removeMoneyDonation(@PathVariable Long id) {
-        service.removeMoneyDonation(id);
+    @PutMapping("/money/{id}")
+    public void forwardMoney(@PathVariable Long id, @RequestBody Long institutionId) {
+        service.forwardMoney(id, institutionId);
     }
 
     @PostMapping("/toy")
@@ -74,9 +74,9 @@ public class DonationController {
     public List<Toy> allToys() {
         return service.allToys();
     }
-    @DeleteMapping("/toy/{id}")
-    public void removeToy(@PathVariable Long id) {
-        service.removeToy(id);
+    @PutMapping("/toy/{id}")
+    public void forwardToy(@PathVariable Long id, @RequestBody Long institutionId) {
+        service.forwardToy(id, institutionId);
     }
 
 }

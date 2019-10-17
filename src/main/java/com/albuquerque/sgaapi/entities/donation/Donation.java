@@ -20,7 +20,7 @@ public abstract class Donation {
     public String productName;
     public String description;
 
-    @ManyToMany
+    @ManyToOne
     public Institution forwardedTo;
 
 }
