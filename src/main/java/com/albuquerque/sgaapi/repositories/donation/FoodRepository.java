@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface FoodRepository extends JpaRepository<Food, Long> {
 
-    List<Food> findAllByForwardTo(Institution institution);
+    List<Food> findAllByForwardedTo(Institution institution);
 
 }

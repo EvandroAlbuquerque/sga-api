@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface MoneyRepository extends JpaRepository<Money, Long> {
 
-    List<Money> findAllByForwardTo(Institution institution);
+    List<Money> findAllByForwardedTo(Institution institution);
 
 }

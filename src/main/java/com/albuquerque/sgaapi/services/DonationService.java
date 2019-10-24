@@ -25,7 +25,7 @@ public class DonationService {
         return clothesRepository.save(clothes);
     }
     public List<Clothes> allClothes() {
-        return clothesRepository.findAllByForwardTo(null);
+        return clothesRepository.findAllByForwardedTo(null);
     }
     public void forwardClothes(Long clothesId, Long institutionId) {
         Clothes clothes = clothesRepository.findById(clothesId).get();
@@ -38,7 +38,7 @@ public class DonationService {
         return foodRepository.save(food);
     }
     public List<Food> allFood() {
-        return foodRepository.findAllByForwardTo(null);
+        return foodRepository.findAllByForwardedTo(null);
     }
     public void forwardFood(Long foodId, Long institutionId) {
         Food food = foodRepository.findById(foodId).get();
@@ -51,7 +51,7 @@ public class DonationService {
         return hygieneProductRepository.save(product);
     }
     public List<HygieneProduct> allHygieneProducts() {
-        return hygieneProductRepository.findAllByForwardTo(null);
+        return hygieneProductRepository.findAllByForwardedTo(null);
     }
     public void forwardHygieneProduct(Long hygieneProductId, Long institutionId) {
         HygieneProduct product = hygieneProductRepository.findById(hygieneProductId).get();
@@ -64,7 +64,7 @@ public class DonationService {
         return moneyRepository.save(money);
     }
     public List<Money> allMoney() {
-        return moneyRepository.findAllByForwardTo(null);
+        return moneyRepository.findAllByForwardedTo(null);
     }
     public void forwardMoney(Long moneyId, Long institutionId) {
         Money money = moneyRepository.findById(moneyId).get();
@@ -77,7 +77,7 @@ public class DonationService {
         return toyRepository.save(toy);
     }
     public List<Toy> allToys() {
-        return toyRepository.findAllByForwardTo(null);
+        return toyRepository.findAllByForwardedTo(null);
     }
     public void forwardToy(Long toyId, Long institutionId) {
         Toy toy = toyRepository.findById(toyId).get();
