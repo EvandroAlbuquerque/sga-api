@@ -2,9 +2,9 @@ package com.albuquerque.sgaapi.web.controllers;
 
 import com.albuquerque.sgaapi.entities.Action;
 import com.albuquerque.sgaapi.entities.Address;
-import com.albuquerque.sgaapi.entities.Volunteer;
+//import com.albuquerque.sgaapi.entities.Volunteer;
 import com.albuquerque.sgaapi.services.ActionService;
-import com.albuquerque.sgaapi.services.VolunteerService;
+//import com.albuquerque.sgaapi.services.VolunteerService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -23,21 +23,22 @@ public class ActionController {
 
     private final ActionService service;
 
-    private final VolunteerService volunteerService;
+//    private final VolunteerService volunteerService;
 
-    @Data
-    public static class ActionDTO {
-        Long responsible;
-        Address place;
-        String hour;
-        String obs;
-    }
+//    @Data
+//    public static class ActionDTO {
+//        Long responsible;
+//        Address place;
+//        String hour;
+//        String obs;
+//    }
 
     @PostMapping("/new")
-    public Action createAction(@RequestBody ActionDTO newAction) {
+//    public Action createAction(@RequestBody ActionDTO newAction) {
+    public Action createAction(@RequestBody Action newAction) {
         Action action = new Action();
-        Volunteer volunteer = volunteerService.find(newAction.getResponsible()).orElse(null);
-        action.setResponsible(volunteer);
+//        Volunteer volunteer = volunteerService.find(newAction.getResponsible()).orElse(null);
+        action.setResponsible(newAction.getResponsible());
         action.setHour(newAction.getHour());
         action.setObs(newAction.getObs());
         action.setPlace(newAction.getPlace());

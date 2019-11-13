@@ -14,8 +14,10 @@ public class Action {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
 
-    @ManyToOne
-    public Volunteer responsible;
+//    @ManyToOne
+//    public Volunteer responsible;
+
+    public String responsible;
 
     @Embedded
     public Address place;
