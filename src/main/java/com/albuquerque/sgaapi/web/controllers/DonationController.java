@@ -1,19 +1,29 @@
-//package com.albuquerque.sgaapi.web.controllers;
-//
-//import com.albuquerque.sgaapi.entities.donation.*;
-//import com.albuquerque.sgaapi.services.DonationService;
-//import lombok.RequiredArgsConstructor;
-//import org.springframework.web.bind.annotation.*;
-//
-//import java.util.List;
-//
-//@RestController
-//@RequestMapping("/api/donation/")
-//@RequiredArgsConstructor
-//public class DonationController {
-//
-//    private final DonationService service;
-//
+package com.albuquerque.sgaapi.web.controllers;
+
+import com.albuquerque.sgaapi.entities.donation.*;
+import com.albuquerque.sgaapi.services.DonationService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/donation/")
+@RequiredArgsConstructor
+public class DonationController {
+
+    private final DonationService service;
+
+    @PostMapping("/new")
+    public Donation newDonation(@RequestBody Donation item) {
+        return service.addItem(item);
+    }
+
+    @GetMapping
+    public List<Donation> allDonations() {
+        return service.allItems();
+    }
+
 //    @PostMapping("/clothes")
 //    public Clothes donateClothes(@RequestBody Clothes clothes) {
 //        return service.addClothes(clothes);
@@ -78,5 +88,5 @@
 //    public void forwardToy(@PathVariable Long id, @RequestBody Long institutionId) {
 //        service.forwardToy(id, institutionId);
 //    }
-//
-//}
+
+}

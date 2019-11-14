@@ -1,18 +1,29 @@
-//package com.albuquerque.sgaapi.services;
-//
-//import com.albuquerque.sgaapi.entities.Institution;
-//import com.albuquerque.sgaapi.entities.donation.*;
-//import com.albuquerque.sgaapi.repositories.InstitutionRepository;
-//import com.albuquerque.sgaapi.repositories.donation.*;
-//import lombok.RequiredArgsConstructor;
-//import org.springframework.stereotype.Service;
-//
-//import java.util.List;
-//
-//@Service
-//@RequiredArgsConstructor
-//public class DonationService {
-//
+package com.albuquerque.sgaapi.services;
+
+import com.albuquerque.sgaapi.entities.Institution;
+import com.albuquerque.sgaapi.entities.donation.*;
+import com.albuquerque.sgaapi.repositories.DonationRepository;
+import com.albuquerque.sgaapi.repositories.InstitutionRepository;
+import com.albuquerque.sgaapi.repositories.donation.*;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+@RequiredArgsConstructor
+public class DonationService {
+
+    private final DonationRepository repository;
+
+    public List<Donation> allItems() {
+        return repository.findAll();
+    }
+
+    public Donation addItem(Donation newItem) {
+        return repository.save(newItem);
+    }
+
 //    private final ClothesRepository        clothesRepository;
 //    private final FoodRepository           foodRepository;
 //    private final HygieneProductRepository hygieneProductRepository;
@@ -85,5 +96,5 @@
 //        toy.setForwardedTo(institution);
 //        toyRepository.save(toy);
 //    }
-//
-//}
+
+}
