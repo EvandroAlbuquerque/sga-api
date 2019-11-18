@@ -6,24 +6,27 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+@Entity
 @Getter
 @Setter
 //@MappedSuperclass
-public abstract class Donation {
+//public abstract class Donation {
+public class Donation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
 
-    public String itemName;
-    public String itemDesctiption;
+    public String category;
+    public String name;
+    public String description;
 
 //    public String donationDate;
 //    public String donatorName;
 //    public String productName;
 //    public String description;
 //
-//    @ManyToOne
-//    public Institution forwardedTo;
+    @ManyToOne
+    public Institution forwardedTo;
 
 }

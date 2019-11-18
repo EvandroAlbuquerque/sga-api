@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/needypoint")
+@RequestMapping("/api/needy-point")
 @RequiredArgsConstructor
 public class NeedyPointController {
 
     private final NeedyPointService service;
 
-    @PostMapping("/new")
+    @PostMapping("/add")
     public NeedyPoint newNeedyPoint(@RequestBody NeedyPoint newNeedyPoint) {
         return service.save(newNeedyPoint);
     }

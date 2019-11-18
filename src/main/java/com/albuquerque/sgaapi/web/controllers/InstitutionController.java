@@ -1,10 +1,13 @@
 package com.albuquerque.sgaapi.web.controllers;
 
+import com.albuquerque.sgaapi.entities.Address;
+import com.albuquerque.sgaapi.entities.Contact;
 import com.albuquerque.sgaapi.entities.Institution;
+import com.albuquerque.sgaapi.entities.Volunteer;
 import com.albuquerque.sgaapi.services.InstitutionService;
-import lombok.AccessLevel;
+import com.albuquerque.sgaapi.services.VolunteerService;
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import lombok.experimental.FieldDefaults;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,29 +22,29 @@ public class InstitutionController {
 
     private final InstitutionService service;
 
-    @PostMapping("/new")
-//    public Volunteer editName(Long id, String nameVolunteer) {
-//        Volunteer volunteer = repository.findById(id).get();
-//
-//        volunteer.setName(nameVolunteer);
-//        return repository.save(volunteer);
-//    }
+    private final VolunteerService volunteerService;
 
-//    public Volunteer editAdress(Long id, Address newAddress) {
-//        Volunteer volunteer = repository.findById(id).get();
-//
-//        volunteer.setAddress(newAddress);
-//        return repository.save(volunteer);
-//    }
-//
-//    public Volunteer editContact(Long id, Contact newContacts) {
-//        Volunteer volunteer = repository.findById(id).get();
-//
-//        volunteer.setContacts(newContacts);
-//        return repository.save(volunteer);
-//    }
-    public Institution createInstitution(@RequestBody Institution newInstitution) {
-        return service.save(newInstitution);
+    @Data
+    public static class InstitutionDTO {
+        Long responsible;
+        String name;
+        String initials;
+        String description;
+        Address address;
+        Contact contact;
+
+    }
+
+    @PostMapping("/add")
+    public Institution createInstitution(@RequestBody InstitutionDTO newInstitution) {
+        Institution institution = new Institution();
+        institution.setName(newInstitution.getName());
+        institution.setInitials(newInstitution.getInitials());
+        institution.setDescription(newInstitution.getDescription());
+        Volunteer responsible = volunteerService.find(newInstitution.getResponsible()).orElse(null);
+        institution.setAddress(newInstitution.getAddress());
+        institution.setContact(newInstitution.getContact());
+        return service.save(institution);
     }
 
     @PutMapping("/{id}")

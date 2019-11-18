@@ -11,7 +11,7 @@ import javax.persistence.Embeddable;
 @Setter
 @Embeddable
 @RequiredArgsConstructor
-public class Address {
+public abstract class Address {
 
     public String street;
 

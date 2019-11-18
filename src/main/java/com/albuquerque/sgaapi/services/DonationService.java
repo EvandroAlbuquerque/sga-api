@@ -1,10 +1,9 @@
 package com.albuquerque.sgaapi.services;
 
 import com.albuquerque.sgaapi.entities.Institution;
-import com.albuquerque.sgaapi.entities.donation.*;
+import com.albuquerque.sgaapi.entities.donation.Donation;
 import com.albuquerque.sgaapi.repositories.DonationRepository;
 import com.albuquerque.sgaapi.repositories.InstitutionRepository;
-import com.albuquerque.sgaapi.repositories.donation.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,12 +15,21 @@ public class DonationService {
 
     private final DonationRepository repository;
 
-    public List<Donation> allItems() {
+    private final InstitutionRepository institutionRepository;
+
+    public List<Donation> allDonations() {
         return repository.findAll();
     }
 
-    public Donation addItem(Donation newItem) {
-        return repository.save(newItem);
+    public Donation addDonation(Donation newDonation) {
+        return repository.save(newDonation);
+    }
+
+    public Donation forwardTo(Long id, Long institutionId) {
+        Institution institution = institutionRepository.getOne(institutionId);
+        Donation donation = repository.getOne(id);
+        donation.setForwardedTo(institution);
+        return repository.save(donation);
     }
 
 //    private final ClothesRepository        clothesRepository;

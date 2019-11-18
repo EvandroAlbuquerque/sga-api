@@ -8,20 +8,25 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/donation/")
+@RequestMapping("/api/donation")
 @RequiredArgsConstructor
 public class DonationController {
 
     private final DonationService service;
 
-    @PostMapping("/new")
-    public Donation newDonation(@RequestBody Donation item) {
-        return service.addItem(item);
+    @PostMapping("/add")
+    public Donation newDonation(@RequestBody Donation donation) {
+        return service.addDonation(donation);
     }
 
     @GetMapping
     public List<Donation> allDonations() {
-        return service.allItems();
+        return service.allDonations();
+    }
+
+    @PutMapping("/{id}/forwardto/{institutionId}")
+    public void forwardDonation(@PathVariable Long id, @PathVariable Long institutionId) {
+        service.forwardTo(id, institutionId);
     }
 
 //    @PostMapping("/clothes")

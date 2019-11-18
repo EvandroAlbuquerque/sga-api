@@ -14,10 +14,10 @@ public class NeedyPoint {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
 
+    public String description;
+
     @Embedded
     public Address address;
-
-    public String description;
 
     public String obs;
 }

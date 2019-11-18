@@ -10,7 +10,7 @@ import javax.persistence.Embeddable;
 @Setter
 @Embeddable
 @RequiredArgsConstructor
-public class Contact {
+public abstract class Contact {
 
     public String email;
     public String phone;

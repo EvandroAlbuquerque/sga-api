@@ -16,7 +16,12 @@ public class Institution {
 
     public String name;
 
+    public String initials;
+
     public String description;
+
+    @OneToOne
+    public Volunteer responsible;
 
     @Embedded
     public Address address;
