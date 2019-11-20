@@ -27,8 +27,8 @@ public class ActionService {
         if (editedAction.getHour() == null) {
             editedAction.setHour(oldAction.getHour());
         }
-        if (editedAction.getPlace() == null) {
-            editedAction.setPlace(oldAction.getPlace());
+        if (editedAction.getAddress() == null) {
+            editedAction.setAddress(oldAction.getAddress());
         }
         if (editedAction.getObs() == null) {
             editedAction.setObs(oldAction.getObs());

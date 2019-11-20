@@ -18,7 +18,7 @@ public class Action {
     public Volunteer responsible;
 
     @Embedded
-    public Address place;
+    public Address address;
 
     public String description;
 
