@@ -23,26 +23,26 @@ public class InstitutionController {
 
     private final InstitutionService service;
 
-    private final VolunteerService volunteerService;
-
-    @Data
-    public static class InstitutionDTO {
-        Long responsible;
-        String name;
-        String initials;
-        String description;
-        Address address;
-        Contact contact;
-
-    }
+//    private final VolunteerService volunteerService;
+//
+//    @Data
+//    public static class InstitutionDTO {
+//        Long responsible;
+//        String name;
+//        String initials;
+//        String description;
+//        Address address;
+//        Contact contact;
+//
+//    }
 
     @PostMapping("/add")
-    public Institution createInstitution(@RequestBody InstitutionDTO newInstitution) {
+    public Institution createInstitution(@RequestBody Institution newInstitution) {
         Institution institution = new Institution();
         institution.setName(newInstitution.getName());
         institution.setInitials(newInstitution.getInitials());
         institution.setDescription(newInstitution.getDescription());
-        Volunteer responsible = volunteerService.find(newInstitution.getResponsible()).orElse(null);
+//        Volunteer responsible = volunteerService.find(newInstitution.getResponsible()).orElse(null);
         institution.setAddress(newInstitution.getAddress());
         institution.setContact(newInstitution.getContact());
         return service.save(institution);

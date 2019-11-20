@@ -20,8 +20,8 @@ public class Institution {
 
     public String description;
 
-    @OneToOne
-    public Volunteer responsible;
+//    @OneToOne
+//    public Volunteer responsible;
 
     @Embedded
     public Address address;
