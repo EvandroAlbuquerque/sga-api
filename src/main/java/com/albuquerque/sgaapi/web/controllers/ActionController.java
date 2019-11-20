@@ -15,7 +15,7 @@ import java.util.List;
 
 // Create, Read, Update and Cancel Actions
 
-
+@CrossOrigin
 @RestController
 @RequestMapping("/api/action")
 @RequiredArgsConstructor

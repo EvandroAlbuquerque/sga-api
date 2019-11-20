@@ -15,6 +15,7 @@ import java.util.List;
 
 // CRUD Institutions
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/institution")
 @RequiredArgsConstructor
