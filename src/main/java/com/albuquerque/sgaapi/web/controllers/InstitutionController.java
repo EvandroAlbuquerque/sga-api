@@ -38,14 +38,14 @@ public class InstitutionController {
 
     @PostMapping("/add")
     public Institution createInstitution(@RequestBody Institution newInstitution) {
-        Institution institution = new Institution();
-        institution.setName(newInstitution.getName());
-        institution.setInitials(newInstitution.getInitials());
-        institution.setDescription(newInstitution.getDescription());
+//        Institution institution = new Institution();
+//        institution.setName(newInstitution.getName());
+//        institution.setInitials(newInstitution.getInitials());
+//        institution.setDescription(newInstitution.getDescription());
 //        Volunteer responsible = volunteerService.find(newInstitution.getResponsible()).orElse(null);
-        institution.setAddress(newInstitution.getAddress());
-        institution.setContact(newInstitution.getContact());
-        return service.save(institution);
+//        institution.setAddress(newInstitution.getAddress());
+//        institution.setContact(newInstitution.getContact());
+        return service.save(newInstitution);
     }
 
     @PutMapping("/{id}")
