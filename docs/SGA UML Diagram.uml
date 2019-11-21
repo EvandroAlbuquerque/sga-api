@@ -1,15 +1,53 @@
 @startuml
 
-abstract class Address {
-    - street: String
-    - postalCode: String
-    - number: int
-    - district: String
+class Acao {
+    - descricao: String
+    - hora: String
+    - obs: String
 }
 
-abstract class Contact {
-    - phone: String
+class Contato {
+    - telefone: String
     - email: String
 }
+
+class Donation {
+    - categoria: String
+    - nome: String
+    - descricao: String
+}
+
+class Endereco {
+    - rua: String
+    - cep: String
+    - numero: int
+    - bairro: String
+}
+
+class Instituicao {
+    - nome: String
+    - sigla: String
+    - descricao: String
+}
+
+class PontoCarente {
+    - descricao: String
+    - obg: String
+}
+
+class Voluntario {
+    - nome: String
+}
+
+Contato --* Acao
+Contato --* Instituicao
+Contato --* PontoCarente
+Acao *-- Endereco
+Acao o-- Voluntario
+Instituicao *-- Endereco
+PontoCarente *-- Endereco
+
+
+
 
 @enduml
