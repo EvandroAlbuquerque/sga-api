@@ -25,12 +25,16 @@ public class DonationService {
         return repository.save(newDonation);
     }
 
-    public Donation forwardTo(Long id, Long institutionId) {
-        Institution institution = institutionRepository.getOne(institutionId);
-        Donation donation = repository.getOne(id);
-        donation.setForwardedTo(institution);
-        return repository.save(donation);
+    public void delete(Long id) {
+        repository.deleteById(id);
     }
+
+//    public Donation forwardTo(Long id, Long institutionId) {
+//        Institution institution = institutionRepository.getOne(institutionId);
+//        Donation donation = repository.getOne(id);
+//        donation.setForwardedTo(institution);
+//        return repository.save(donation);
+//    }
 
 //    private final ClothesRepository        clothesRepository;
 //    private final FoodRepository           foodRepository;

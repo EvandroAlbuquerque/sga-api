@@ -15,6 +15,12 @@ public class DonationController {
 
     private final DonationService service;
 
+//    @Data
+//    public static class ForwardToDTO {
+//        Long donationId;
+//        Long institutionId;
+//    }
+
     @PostMapping("/add")
     public Donation newDonation(@RequestBody Donation donation) {
         return service.addDonation(donation);
@@ -25,10 +31,15 @@ public class DonationController {
         return service.allDonations();
     }
 
-    @PutMapping("/{id}/forwardto/{institutionId}")
-    public void forwardDonation(@PathVariable Long id, @PathVariable Long institutionId) {
-        service.forwardTo(id, institutionId);
+    @DeleteMapping("/delete")
+    public void deleteDonation(@RequestBody Long id) {
+        service.delete(id);
     }
+
+//    @PutMapping("/forwardto")
+//    public void forwardDonation(@RequestBody ForwardToDTO forwardTo) {
+//        service.forwardTo(forwardTo.donationId, forwardTo.institutionId);
+//    }
 
 //    @PostMapping("/clothes")
 //    public Clothes donateClothes(@RequestBody Clothes clothes) {

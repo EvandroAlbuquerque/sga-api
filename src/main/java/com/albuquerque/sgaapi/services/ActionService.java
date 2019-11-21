@@ -43,6 +43,10 @@ public class ActionService {
 //        return repository.save(action);
 //    }
 
+    public void delete(Long id) {
+        repository.deleteById(id);
+    }
+
     public Action cancel(Long id) {
         Action action = repository.findById(id).orElse(null);
         action.setScheduled(false);

@@ -33,7 +33,7 @@ public class NeedyPointController {
         return ResponseEntity.of(service.find(id));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete")
     public void deleteNeedPoint(@PathVariable Long id) {
         service.delete(id);
     }

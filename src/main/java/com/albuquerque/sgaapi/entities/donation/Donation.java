@@ -26,7 +26,7 @@ public class Donation {
 //    public String productName;
 //    public String description;
 //
-    @ManyToOne
-    public Institution forwardedTo;
+//    @ManyToOne
+//    public Institution forwardedTo;
 
 }

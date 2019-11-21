@@ -33,10 +33,10 @@ public class VolunteerController {
 //        return ResponseEntity.of(service.find(id));
 //    }
 //
-//    @DeleteMapping("/{id}")
-//    public void deleteVolunteer(@PathVariable Long id) {
-//        service.delete(id);
-//    }
+    @DeleteMapping("/delete")
+    public void deleteVolunteer(@PathVariable Long id) {
+        service.delete(id);
+    }
 
     @GetMapping
     public List<Volunteer> allVolunteers(){
