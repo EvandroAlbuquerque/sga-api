@@ -31,8 +31,8 @@ public class DonationController {
         return service.allDonations();
     }
 
-    @DeleteMapping("/delete")
-    public void deleteDonation(@RequestBody Long id) {
+    @DeleteMapping("/delete/{id}")
+    public void deleteDonation(@PathVariable Long id) {
         service.delete(id);
     }
 

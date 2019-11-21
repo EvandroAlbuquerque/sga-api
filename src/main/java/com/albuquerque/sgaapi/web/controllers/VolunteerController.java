@@ -33,7 +33,7 @@ public class VolunteerController {
 //        return ResponseEntity.of(service.find(id));
 //    }
 //
-    @DeleteMapping("/delete")
+    @DeleteMapping("/delete/{id}")
     public void deleteVolunteer(@PathVariable Long id) {
         service.delete(id);
     }

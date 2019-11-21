@@ -53,7 +53,7 @@ public class InstitutionController {
         return ResponseEntity.of(service.find(id));
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("/delete/{id}")
     public void deleteInstitution(@RequestBody Long id) {
         service.delete(id);
     }

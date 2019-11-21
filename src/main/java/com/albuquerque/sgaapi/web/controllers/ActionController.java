@@ -53,8 +53,8 @@ public class ActionController {
         return ResponseEntity.of(service.find(id));
     }
 
-    @DeleteMapping("/delete")
-    public void deleteAction(@RequestBody Long id) {
+    @DeleteMapping("/delete/{id}")
+    public void deleteAction(@PathVariable Long id) {
         service.delete(id);
     }
 
