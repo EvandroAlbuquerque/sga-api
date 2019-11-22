@@ -43,23 +43,24 @@ public class InstitutionController {
         return service.save(newInstitution);
     }
 
-    @PutMapping("/{id}")
-    public Institution editInstitution(@PathVariable Long id, @RequestBody Institution editedInstitution) {
-        return service.edit(id, editedInstitution);
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<Institution> viewInstitution(@PathVariable Long id) {
-        return ResponseEntity.of(service.find(id));
-    }
-
-    @DeleteMapping("/delete/{id}")
-    public void deleteInstitution(@RequestBody Long id) {
-        service.delete(id);
-    }
-
     @GetMapping
     public List<Institution> allInstitutions() {
         return service.findAll();
     }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteInstitution(@PathVariable Long id) {
+        service.delete(id);
+    }
+
+//    @PutMapping("/{id}")
+//    public Institution editInstitution(@PathVariable Long id, @RequestBody Institution editedInstitution) {
+//        return service.edit(id, editedInstitution);
+//    }
+//
+//    @GetMapping("/{id}")
+//    public ResponseEntity<Institution> viewInstitution(@PathVariable Long id) {
+//        return ResponseEntity.of(service.find(id));
+//    }
+
 }

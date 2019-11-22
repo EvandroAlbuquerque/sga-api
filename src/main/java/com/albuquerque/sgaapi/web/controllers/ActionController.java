@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 // Create, Read, Update and Cancel Actions
 
@@ -43,14 +45,9 @@ public class ActionController {
         return service.save(action);
     }
 
-    @PutMapping("/{id}")
-    public Action editAction(@PathVariable Long id, @RequestBody Action editedAction) {
-        return service.edit(id, editedAction);
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<Action> viewAction(@PathVariable Long id) {
-        return ResponseEntity.of(service.find(id));
+    @GetMapping
+    public List<Action> actions() {
+        return service.findAll();
     }
 
     @DeleteMapping("/delete/{id}")
@@ -58,15 +55,24 @@ public class ActionController {
         service.delete(id);
     }
 
+//    @PutMapping("/{id}")
+//    public Action editAction(@PathVariable Long id, @RequestBody Action editedAction) {
+//        return service.edit(id, editedAction);
+//    }
+//
+//    @GetMapping("/{id}")
+//    public ResponseEntity<Action> viewAction(@PathVariable Long id) {
+//        return ResponseEntity.of(service.find(id));
+//    }
+
+
+
 //    @PutMapping("/cancel/{id}")
 //    public Action cancelAction(@PathVariable Long id) {
 //        return service.cancel(id);
 //    }
 //
-//    @GetMapping
-//    public List<Action> actions() {
-//        return service.findAll();
-//    }
+
 //
 //    @GetMapping("/historic")
 //    public List<Action> historicActions(Long id, Address newAdress) {
