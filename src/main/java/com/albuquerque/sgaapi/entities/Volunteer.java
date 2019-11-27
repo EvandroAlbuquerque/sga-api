@@ -16,10 +16,10 @@ public class Volunteer {
 
     public String name;
 
-    @Embedded
+    @OneToOne(cascade = CascadeType.REMOVE)
     public Address address;
 
-    @Embedded
+    @OneToOne(cascade = CascadeType.REMOVE)
     public Contact contact;
 }
 

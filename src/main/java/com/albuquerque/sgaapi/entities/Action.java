@@ -17,7 +17,7 @@ public class Action {
     @ManyToOne
     public Volunteer responsible;
 
-    @Embedded
+    @ManyToOne(cascade = CascadeType.REMOVE)
     public Address address;
 
     public String description;
@@ -26,5 +26,5 @@ public class Action {
 
     public String obs;
 
-    public boolean scheduled = true;
+//    public boolean scheduled = true;
 }

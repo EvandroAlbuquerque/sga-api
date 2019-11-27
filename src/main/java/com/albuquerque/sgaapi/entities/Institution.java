@@ -23,9 +23,9 @@ public class Institution {
 //    @OneToOne
 //    public Volunteer responsible;
 
-    @Embedded
+    @OneToOne(cascade = CascadeType.REMOVE)
     public Address address;
 
-    @Embedded
+    @OneToOne(cascade = CascadeType.REMOVE)
     public Contact contact;
 }

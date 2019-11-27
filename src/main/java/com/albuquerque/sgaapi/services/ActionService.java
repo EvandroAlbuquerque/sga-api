@@ -47,19 +47,19 @@ public class ActionService {
         repository.deleteById(id);
     }
 
-    public Action cancel(Long id) {
-        Action action = repository.findById(id).orElse(null);
-        action.setScheduled(false);
-        return repository.save(action);
-    }
+//    public Action cancel(Long id) {
+//        Action action = repository.findById(id).orElse(null);
+//        action.setScheduled(false);
+//        return repository.save(action);
+//    }
 
     public Optional<Action> find(Long id) {
         return repository.findById(id);
     }
 
-    public List<Action> findAllActive() {
-        return repository.findAllByScheduled(true);
-    }
+//    public List<Action> findAllActive() {
+//        return repository.findAllByScheduled(true);
+//    }
 
     public List<Action> findAll() {
         return repository.findAll();

@@ -4,6 +4,7 @@ import com.albuquerque.sgaapi.entities.Action;
 import com.albuquerque.sgaapi.entities.Address;
 import com.albuquerque.sgaapi.entities.Volunteer;
 import com.albuquerque.sgaapi.services.ActionService;
+import com.albuquerque.sgaapi.services.AddressService;
 import com.albuquerque.sgaapi.services.VolunteerService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +24,7 @@ public class ActionController {
 
     private final ActionService service;
 
+    private final AddressService addressService;
     private final VolunteerService volunteerService;
 
     @Data
@@ -39,9 +41,12 @@ public class ActionController {
         Action action = new Action();
         Volunteer volunteer = volunteerService.find(newAction.getResponsible()).orElse(null);
         action.setResponsible(volunteer);
+        action.setDescription(newAction.getDescription());
+        Address address = addressService.save(newAction.getAddress());
+        action.setAddress(address);
         action.setHour(newAction.getHour());
         action.setObs(newAction.getObs());
-        action.setAddress(newAction.getAddress());
+
         return service.save(action);
     }
 

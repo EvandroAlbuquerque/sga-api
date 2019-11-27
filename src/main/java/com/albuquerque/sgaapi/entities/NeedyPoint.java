@@ -16,7 +16,7 @@ public class NeedyPoint {
 
     public String description;
 
-    @Embedded
+    @OneToOne(cascade = CascadeType.REMOVE)
     public Address address;
 
     public String obs;
