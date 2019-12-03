@@ -1,21 +1,20 @@
 package com.albuquerque.sgaapi.entities;
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.springframework.lang.Nullable;
-
-import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+
+@Entity
 @Getter
 @Setter
-@Entity
-@RequiredArgsConstructor
 public class Address {
 
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
 
