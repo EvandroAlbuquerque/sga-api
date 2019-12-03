@@ -17,7 +17,7 @@ public class Action {
     @ManyToOne
     public Volunteer responsible;
 
-    @Embedded
+    @ManyToMany
     public Address address;
 
     public String description;
